@@ -1,38 +1,23 @@
 package org.example;
 
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
+
+
+import java.util.List;
+
+import static org.example.App.findNumbersFromExcel;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+public class AppTest
+        extends TestCase {
 
     /**
-     * @return the suite of tests being tested
+     * Тестирование метода FindNumbersFromExcel
      */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    public void testFindNumbersFromExcel() {
+        List<String> actualList = List.of("Номер QW56655 не найден", "Номер С405ММ799 найден", "Номер C052AM799 найден");
+        assertEquals(findNumbersFromExcel("name_java.xlsx", "QW56655", "С405ММ799", "C052AM799"), actualList);
     }
 }
